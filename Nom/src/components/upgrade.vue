@@ -5,8 +5,14 @@
 </template>
 
 <script setup>
+defineProps({
+    upgrade: {
+        type: Object,
+        required: true,
+    }
+})
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
