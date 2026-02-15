@@ -4,8 +4,7 @@
         <h2 class = "text-2xl p-5">Lick the cookie until it is completly gone!</h2>
         <div class = "flex flex-row justify-center w-full h-160">
             <actual-cookie></actual-cookie>
-            <div class = "w-[40%] border-4">
-            </div>
+            <upgrade-screen></upgrade-screen>
             <shop></shop>
         </div>
     </div>
@@ -14,12 +13,17 @@
 <script setup>
 import actualCookie from "@/components/actualCookie.vue"
 import shop from '@/components/shop.vue'
-import {currentCrumbs, LicksPerSecond } from "@/router/cookieVariables";
+import upgradeScreen from '@/components/upgrade.vue'
+import {currentCrumbs, LicksPerSecond, rounder, totalCookieMade } from "@/router/cookieVariables";
 
 const game_ID = setInterval(() => {
-    currentCrumbs.value += LicksPerSecond.value/10
-    currentCrumbs.value = Math.round(currentCrumbs.value*10)/10
-}, 100)
+    if (LicksPerSecond !== 0){
+        currentCrumbs.value += LicksPerSecond.value/5
+        totalCookieMade.value += LicksPerSecond.value/5
+    }
+    currentCrumbs.value = rounder(currentCrumbs.value, "cc")
+}, 200)
+
 
 
 
