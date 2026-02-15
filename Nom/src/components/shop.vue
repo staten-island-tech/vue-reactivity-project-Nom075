@@ -21,13 +21,13 @@ const buildings= ref([
 ])
 
 function buyingCalculation(building){
-    if (currentCrumbs.value >= building.price){
+    if (currentCrumbs.value.greaterThanOrEqualTo(building.price)){
         
-        LicksPerSecond.value += building.licksPerSecondBoost
-        currentCrumbs.value -= building.price
+        LicksPerSecond.value = LicksPerSecond.value.plus(building.licksPerSecondBoost)
+        currentCrumbs.value = currentCrumbs.value.minus(building.price)
         currentCrumbs.value = rounder(currentCrumbs.value, "cc")
-        building.price = Math.floor(building.price*1.2)
-        building.owned += 1
+        building.price = building.price.times(1.2).floor()
+        building.owned = building.owned.plus(1)
 
     }
 }

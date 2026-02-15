@@ -11,7 +11,7 @@
                 <p class = "text-black text-center text-base">{{ building.description}}</p>
                 <p class = "text-black text-center text-base">Increases LPS by: {{building.licksPerSecondBoost}}</p>
                 <p class = "text-black text-center text-base">Crumbs cost: {{ building.price}}</p>
-                <button v-if = "currentCrumbs > building.price" @click = "emit('boughtSelf', building)" class="btn btn-success h-7 w-[40%] justify-center">Buy!</button>
+                <button v-if = "currentCrumbs >= building.price" @click = "emit('boughtSelf', building)" class="btn btn-success h-7 w-[40%] justify-center">Buy!</button>
                 <button v-else @click = "emit('boughtSelf', building)" class="btn btn-error h-7 w-[40%] justify-center">Buy!</button>
             </div>
         </div>
