@@ -10,25 +10,18 @@
 <script setup>
 import {ref} from 'vue'
 import buildingCard from '@/components/buildingCard.vue';
-import { currentCrumbs, LicksPerSecond, LickPower, rounder, D } from '@/router/cookieVariables';
+import { currentCrumbs, LicksPerSecond, LickPower, rounder, D, buildings, calculateLPS} from '@/router/cookieVariables';
 
-const buildings= ref([
-  { name: 'Tongue', description: "A tongue to help you lick the cookie!", price: 25, licksPerSecondBoost: 1, image: "/Tongue.png", owned: 0},
-  { name: 'Cat', description: "Helps you lick the cookie. This one is immune to chocolate.", price: 180, licksPerSecondBoost: 3, image: "/Cat.png", owned: 0},
-    {name: 'Dog', description: "Slobbery Kisses for the cookie! Also immune to chocolate.", price: 1000, licksPerSecondBoost: 15, image: "/Dog.png", owned: 0},
-    {name: 'Licker-Bot', description: "It may not seem like it has a mouth but it is good at licking things.", price: 6900, licksPerSecondBoost: 55, image: "/Robot.webp", owned: 0},
-    {name: 'King Vaccum V', description: `Sucking is its middle name. Licking is for babies.`, price: 45000, licksPerSecondBoost: 350, image: "/Vaccum.png", owned: 0},
-])
 
 function buyingCalculation(building){
     if (currentCrumbs.value.greaterThanOrEqualTo(building.price)){
         
-        LicksPerSecond.value = LicksPerSecond.value.plus(building.licksPerSecondBoost)
         currentCrumbs.value = currentCrumbs.value.minus(building.price)
         currentCrumbs.value = rounder(currentCrumbs.value, "cc")
         building.price = D(building.price).mul(1.2).floor()
         building.owned = D(building.owned).plus(1)
-        console.log(building.price.mul(1.2).floor())
+        calculateLPS()
+        
     }
 }
 

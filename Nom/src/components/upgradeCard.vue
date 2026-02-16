@@ -1,40 +1,122 @@
 <template>
-    <button v-if = "currentCrumbs.greaterThanOrEqualTo(upgrade.price)"@click = "what()" class = "bg-white h-25 w-[95%] p-1 justify-items-center hover:bg-blue-300">
-            <div class = "flex flex-col h-full w-full">
-                <div class = "flex h-[70%] justify-center">
-                    <img :src="upgrade.image" alt="cook">
-                </div>
-                <div class = "h-[30%] w-auto text-center">
-                    <h2 class = "text-lg">{{ upgrade.name }}</h2>
-                </div>
-            </div>
-        </button>
-    <button v-else class = "bg-red-700 h-25 w-[95%] p-1 justify-items-center hover:bg-blue-300">
-            <div class = "flex flex-col h-full w-full">
-                <div class = "flex h-[70%] justify-center">
-                    <img src="/Lock.png" alt="cook">
-                </div>
-                <div class = "h-[30%] w-auto text-center">
-                    <h2 class = "text-lg">???</h2>
-                </div>
-            </div>
-        </button>
+  <div
+    class="relative w-full"
+    @mouseenter="hover = true; updateTooltipPosition($event)"
+    @mousemove="updateTooltipPosition($event)"
+    @mouseleave="hover = false"
+  >
+
+    <button
+      v-if="upgrade.owned"
+      class="bg-green-400 border-black border-2 h-25 w-full p-1 justify-items-center hover:bg-green-200"
+    >
+      <div class="flex flex-col h-full w-full">
+        <div class="flex h-[70%] justify-center">
+          <img :src="upgrade.image" alt="cook" />
+        </div>
+        <div class="h-[30%] w-auto text-center">
+          <h2 class="text-lg">{{ upgrade.name }}</h2>
+        </div>
+      </div>
+    </button>
+
+    <button
+      v-else-if="upgrade.unlocked() && currentCrumbs.lessThan(upgrade.price)"
+      @click="purchaseCalculation(upgrade)"
+      class="bg-red-700 h-25 border-2 border-black w-full p-1 justify-items-center hover:bg-red-400"
+    >
+      <div class="flex flex-col h-full w-full">
+        <div class="flex h-[70%] justify-center">
+          <img :src="upgrade.image" alt="cook" />
+        </div>
+        <div class="h-[30%] w-auto text-center">
+          <h2 class="text-lg">{{ upgrade.name }}</h2>
+        </div>
+      </div>
+    </button>
+
+    <button
+      v-else-if="upgrade.unlocked()"
+      @click="purchaseCalculation(upgrade)"
+      class="bg-yellow-200 border-black border-2 h-25 w-full p-1 justify-items-center hover:bg-yellow-100"
+    >
+      <div class="flex flex-col h-full w-full">
+        <div class="flex h-[70%] justify-center">
+          <img :src="upgrade.image" alt="cook" />
+        </div>
+        <div class="h-[30%] w-auto text-center">
+          <h2 class="text-lg">{{ upgrade.name }}</h2>
+        </div>
+      </div>
+    </button>
+
+    <button
+      v-else
+      class="bg-white border-black border-2 h-25 w-full p-1 justify-items-center hover:bg-blue-300"
+    >
+      <div class="flex flex-col h-full w-full">
+        <div class="flex h-full justify-center">
+          <img src="/Lock.png" alt="cook" />
+        </div>
+      </div>
+    </button>
+
+    <Teleport to="body">
+      <div v-if = "upgrade.unlocked() && hover"
+        class="absolute w-48 p-2 bg-gray-800 text-white text-sm rounded z-50 pointer-events-none shadow-lg"
+        :style="tooltipStyle"
+      >
+        <h2 class="text-lg font-bold">{{ upgrade.name }}</h2>
+        <p>Price: {{ upgrade.price}}</p>
+      </div>
+    </Teleport>
+  </div>
 </template>
 
 <script setup>
-import { currentCrumbs } from '@/router/cookieVariables';
+import { ref } from "vue";
+import { currentCrumbs, purchasedUpgrades, calculateLPS } from "@/router/cookieVariables";
+
+//  <---------GPT: Mr. Whalen if u quiz me on this idk what this does. I just know it works.----------->
+
+const hover = ref(false);
+const tooltipX = ref(0);
+const tooltipY = ref(0);
+
+// reactive style for tooltip positioning
+const tooltipStyle = ref({ top: "0px", left: "0px" });
+
+// Update tooltip position dynamically based on cursor
+function updateTooltipPosition(event) {
+  tooltipX.value = event.clientX;
+  tooltipY.value = event.clientY - 60; // slightly above cursor
+
+  tooltipStyle.value = {
+    top: `${tooltipY.value}px`,
+    left: `${tooltipX.value - 96}px`, // center tooltip (tooltip width = 192px)
+  };
+}
+
+//  <---------End of GPT----------->
+
+function purchaseCalculation(upgrade) {
+  if (currentCrumbs.value.greaterThanOrEqualTo(upgrade.price) && !upgrade.owned) {
+    currentCrumbs.value = currentCrumbs.value.minus(upgrade.price);
+    purchasedUpgrades.value.push(upgrade.name);
+    upgrade.owned = true;
+    upgrade.boost();
+    calculateLPS();
+  }
+}
 
 defineProps({
-    upgrade: {
-        type: Object,
-        required: true,
-    }
-})
-
-function what(){
-    console.log("whatttttt")
-}
+  upgrade: {
+    type: Object,
+    required: true,
+  },
+});
 </script>
+
 
 <style lang="scss" scoped>
 

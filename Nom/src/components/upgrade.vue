@@ -9,15 +9,7 @@
 <script setup>
 import { ref } from "vue";
 import upgradeCard from "@/components/upgradeCard.vue"
-
-const upgrades= ref([
-    {name: "Saliva I", price: 1, image: "/Cookie.png"},
-    {name: "Saliva II", price: 5, image: "/Cookie.png"},
-    {name: "Saliva III", price: 10, image: "/Cookie.png"},
-    {name: "Saliva IV", price: 15, image: "/Cookie.png"},
-    {name: "Saliva V", price: 20, image: "/Cookie.png"},
-
-])
+import { upgrades } from "@/router/cookieVariables";
 
 
 </script>
