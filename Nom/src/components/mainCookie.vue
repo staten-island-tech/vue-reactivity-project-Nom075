@@ -17,12 +17,12 @@ import upgradeScreen from '@/components/upgrade.vue'
 import {currentCrumbs, LicksPerSecond, rounder, totalCookieMade } from "@/router/cookieVariables";
 
 const game_ID = setInterval(() => {
-    if (LicksPerSecond.notEquals(0)){
-        currentCrumbs.value = LicksPerSecond.value.plus(LicksPerSecond.value.div(5))
+    if (!LicksPerSecond.value.eq(0)){
+        currentCrumbs.value = currentCrumbs.value.plus(LicksPerSecond.value.div(5))
         totalCookieMade.value = totalCookieMade.value.plus(LicksPerSecond.value.div(5))
     }
     currentCrumbs.value = rounder(currentCrumbs.value, "cc")
-}, 200)
+}, 50)
 
 
 

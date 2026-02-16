@@ -1,5 +1,5 @@
 <template>
-<div v-if = "totalCookieMade >= building.price || building.owned > 0"class = "flex p-3">
+<div v-if = "totalCookieMade.greaterThanOrEqualTo(building.price) || building.owned > 0"class = "flex p-3">
     <div class="card w-[95%] h-auto bg-white card-sm shadow-sm">
     <div class="flex flex-row card-body">
         <div class = "flex h-full w-[20%] justify-center items-center">
@@ -7,11 +7,11 @@
         </div>
         <div class = "h-full w-[75%]">
             <div class = "flex flex-col items-center gap-2">
-                <h2 class="text-black text-center text-xl">{{building.name}} (x{{ building.owned }})</h2>
+                <h2 class="text-black text-center text-xl">{{building.name}} (x{{ building.owned}})</h2>
                 <p class = "text-black text-center text-base">{{ building.description}}</p>
-                <p class = "text-black text-center text-base">Increases LPS by: {{building.licksPerSecondBoost}}</p>
-                <p class = "text-black text-center text-base">Crumbs cost: {{ building.price}}</p>
-                <button v-if = "currentCrumbs >= building.price" @click = "emit('boughtSelf', building)" class="btn btn-success h-7 w-[40%] justify-center">Buy!</button>
+                <p class = "text-black text-center text-base">Increases LPS by: {{format(building.licksPerSecondBoost)}}</p>
+                <p class = "text-black text-center text-base">Crumbs cost: {{ format(building.price)}}</p>
+                <button v-if = "currentCrumbs.greaterThanOrEqualTo(building.price)" @click = "emit('boughtSelf', building)" class="btn btn-success h-7 w-[40%] justify-center">Buy!</button>
                 <button v-else @click = "emit('boughtSelf', building)" class="btn btn-error h-7 w-[40%] justify-center">Buy!</button>
             </div>
         </div>
@@ -24,14 +24,15 @@
         <div class = "flex h-[80%] w-[20%]">
             <img src="/Lock.png" alt="Lock">
         </div>
-        <p class = "text-black text-center text-base">{{ Math.round((totalCookieMade / building.price)*10000)/100}}% unlocked.</p>
+        <p class = "text-black text-center text-base">{{(totalCookieMade.dividedBy(building.price)).mul(100).toDecimalPlaces(2)}}% unlocked.</p>
         <p class = "text-black text-center text-base">Collect more cookie crumbs to unlock this building.</p>
     </div>
 </div>
 </template>
 
 <script setup>
-import { currentCrumbs, totalCookieMade } from '@/router/cookieVariables';
+import { currentCrumbs, totalCookieMade, format, D } from '@/router/cookieVariables';
+import Decimal from 'decimal.js';
 
 defineProps({
     building: {

@@ -3,14 +3,14 @@
     <h1 class = "text-center text-2xl p-3">Store</h1>
     <div class = "overflow-auto bg-blue-100 h-[91%] w-full">
         <buildingCard v-for = "building in buildings" :key = "building.name" :building = "building" @bought-self="buyingCalculation"></buildingCard>
-</div>
+    </div>
 </div>
 </template>
 
 <script setup>
 import {ref} from 'vue'
 import buildingCard from '@/components/buildingCard.vue';
-import { currentCrumbs, LicksPerSecond, LickPower, rounder } from '@/router/cookieVariables';
+import { currentCrumbs, LicksPerSecond, LickPower, rounder, D } from '@/router/cookieVariables';
 
 const buildings= ref([
   { name: 'Tongue', description: "A tongue to help you lick the cookie!", price: 25, licksPerSecondBoost: 1, image: "/Tongue.png", owned: 0},
@@ -26,9 +26,9 @@ function buyingCalculation(building){
         LicksPerSecond.value = LicksPerSecond.value.plus(building.licksPerSecondBoost)
         currentCrumbs.value = currentCrumbs.value.minus(building.price)
         currentCrumbs.value = rounder(currentCrumbs.value, "cc")
-        building.price = building.price.times(1.2).floor()
-        building.owned = building.owned.plus(1)
-
+        building.price = D(building.price).mul(1.2).floor()
+        building.owned = D(building.owned).plus(1)
+        console.log(building.price.mul(1.2).floor())
     }
 }
 
