@@ -6,10 +6,11 @@
             <img :src="building.image" alt="cookie">
         </div>
         <div class = "h-full w-[75%]">
-            <div class = "flex flex-col items-center gap-2">
+            <div class = "flex flex-col items-center gap-1">
                 <h2 class="text-black text-center text-xl">{{building.name}} (x{{ building.owned}})</h2>
-                <p class = "text-black text-center text-base">{{ building.description}}</p>
-                <p class = "text-black text-center text-base">Increases LPS by: {{format(building.licksPerSecondBoost)}}</p>
+                <p class = "text-black text-center text-base italic">"{{ building.description}}"</p>
+                <p class = "text-green-600 text-center text-base">Increases LPS by: {{format(building.licksPerSecondBoost)}}</p>
+                <p class = "text-black text-center text-sm">Total LPS: {{format(D(building.licksPerSecondBoost).mul(building.owned))}} ({{rounder((D(building.licksPerSecondBoost).mul(building.owned)).div(LicksPerSecond).mul(100), "cc")}}% of total LPS.)</p>
                 <p class = "text-black text-center text-base">Crumbs cost: {{ format(building.price)}}</p>
                 <button v-if = "currentCrumbs.greaterThanOrEqualTo(building.price)" @click = "emit('boughtSelf', building)" class="btn btn-success h-7 w-[40%] justify-center">Buy!</button>
                 <button v-else @click = "emit('boughtSelf', building)" class="btn btn-error h-7 w-[40%] justify-center">Buy!</button>
@@ -31,7 +32,7 @@
 </template>
 
 <script setup>
-import { currentCrumbs, totalCookieMade, format, D } from '@/router/cookieVariables';
+import { currentCrumbs, totalCookieMade, format, D, LicksPerSecond, rounder } from '@/router/cookieVariables';
 import Decimal from 'decimal.js';
 
 defineProps({
