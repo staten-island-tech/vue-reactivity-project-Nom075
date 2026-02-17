@@ -4,14 +4,16 @@
         <h2 class = "text-2xl">Cookie crumbs: {{ format(currentCrumbs) }}</h2>
         <h2 class = "text-lg">Licks per second: {{format(LicksPerSecond)}}</h2>
         <h2 class = "text-lg">All {{format(totalCookieMade)}}</h2>
+        <h2 class = "text-lg">Power {{format(LickPower.plus(LickPowerConversion.mul(LicksPerSecond)))}}</h2>
+        <h2 class = "text-lg">Multi {{LickPowerConversion}}</h2>
         <button class = "h-[40%] w-[50%] hover:w-[55%] border-none" @click = "addCookie()"><img src = "/Cookie.png"></button>
     </div>
 </template>
 
 <script setup>
-import { currentCrumbs, LicksPerSecond, LickPower, totalCookieMade, format } from '@/router/cookieVariables';
+import { currentCrumbs, LicksPerSecond, LickPower, totalCookieMade, format, LickPowerConversion } from '@/router/cookieVariables';
 function addCookie(){
-    currentCrumbs.value = currentCrumbs.value.plus(LickPower.value)
+    currentCrumbs.value = currentCrumbs.value.plus(LickPower.value.plus(LickPowerConversion.value.mul(LicksPerSecond.value)))
     totalCookieMade.value = totalCookieMade.value.plus(LickPower.value)
 }
 

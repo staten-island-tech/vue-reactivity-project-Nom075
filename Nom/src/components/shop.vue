@@ -18,7 +18,7 @@ function buyingCalculation(building){
         
         currentCrumbs.value = currentCrumbs.value.minus(building.price)
         currentCrumbs.value = rounder(currentCrumbs.value, "cc")
-        building.price = D(building.price).mul(1.2).floor()
+        building.price = D(building.price).mul(1.15).floor()
         building.owned = D(building.owned).plus(1)
         calculateLPS()
         

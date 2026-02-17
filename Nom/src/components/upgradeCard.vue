@@ -5,17 +5,23 @@
     @mousemove="updateTooltipPosition($event)"
     @mouseleave="hover = false"
   >
-
     <button
-      v-if="upgrade.owned"
+      v-if="upgrade.X"
+      class="h-25 w-full p-1 justify-items-center"
+    >
+      <div class="flex flex-col h-full w-full">
+      </div>
+    </button>
+    <button
+      v-else-if="upgrade.owned"
       class="bg-green-400 border-black border-2 h-25 w-full p-1 justify-items-center hover:bg-green-200"
     >
       <div class="flex flex-col h-full w-full">
-        <div class="flex h-[70%] justify-center">
+        <div class="flex h-[80%] justify-center">
           <img :src="upgrade.image" alt="cook" />
         </div>
-        <div class="h-[30%] w-auto text-center">
-          <h2 class="text-lg">{{ upgrade.name }}</h2>
+        <div class="h-[20%] w-auto text-center">
+          <h2 class="text-sm">{{ upgrade.name }}</h2>
         </div>
       </div>
     </button>
@@ -26,11 +32,11 @@
       class="bg-red-700 h-25 border-2 border-black w-full p-1 justify-items-center hover:bg-red-400"
     >
       <div class="flex flex-col h-full w-full">
-        <div class="flex h-[70%] justify-center">
+        <div class="flex h-[80%] justify-center">
           <img :src="upgrade.image" alt="cook" />
         </div>
-        <div class="h-[30%] w-auto text-center">
-          <h2 class="text-lg">{{ upgrade.name }}</h2>
+        <div class="h-[20%] w-auto text-center">
+          <h2 class="text-sm">{{ upgrade.name }}</h2>
         </div>
       </div>
     </button>
@@ -41,11 +47,11 @@
       class="bg-yellow-200 border-black border-2 h-25 w-full p-1 justify-items-center hover:bg-yellow-100"
     >
       <div class="flex flex-col h-full w-full">
-        <div class="flex h-[70%] justify-center">
+        <div class="flex h-[80%] justify-center">
           <img :src="upgrade.image" alt="cook" />
         </div>
-        <div class="h-[30%] w-auto text-center">
-          <h2 class="text-lg">{{ upgrade.name }}</h2>
+        <div class="h-[20%] w-auto text-center">
+          <h2 class="text-sm">{{ upgrade.name }}</h2>
         </div>
       </div>
     </button>
@@ -63,11 +69,13 @@
 
     <Teleport to="body">
       <div v-if = "upgrade.unlocked() && hover"
-        class="absolute w-48 p-2 bg-gray-800 text-white text-sm rounded z-50 pointer-events-none shadow-lg"
+        class="absolute w-60 p-2 bg-white text-black text-sm rounded z-50 pointer-events-none shadow-lg gap-1"
         :style="tooltipStyle"
       >
-        <h2 class="text-lg font-bold">{{ upgrade.name }}</h2>
-        <p>Price: {{ upgrade.price}}</p>
+        <h2 class="text-lg font-bold text-center">{{ upgrade.name }}</h2>
+        <p class = "text-center italic">"{{ upgrade.description }}"</p>
+        <p class = "text-center text-green-600">{{ upgrade.usefulDes }}</p>
+        <p class = "text-center">Cost {{ format(upgrade.price)}} crumbs.</p>
       </div>
     </Teleport>
   </div>
@@ -75,7 +83,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { currentCrumbs, purchasedUpgrades, calculateLPS } from "@/router/cookieVariables";
+import { currentCrumbs, purchasedUpgrades, calculateLPS, format } from "@/router/cookieVariables";
 
 //  <---------GPT: Mr. Whalen if u quiz me on this idk what this does. I just know it works.----------->
 
