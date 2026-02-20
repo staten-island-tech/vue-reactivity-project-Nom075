@@ -21,7 +21,7 @@
           <img :src="upgrade.image" alt="cook" />
         </div>
         <div class="h-[20%] w-auto text-center">
-          <h2 class="text-sm">{{ upgrade.name }}</h2>
+          <h2 class="text-xs">{{ upgrade.name }}</h2>
         </div>
       </div>
     </button>
@@ -36,7 +36,7 @@
           <img :src="upgrade.image" alt="cook" />
         </div>
         <div class="h-[20%] w-auto text-center">
-          <h2 class="text-sm">{{ upgrade.name }}</h2>
+          <h2 class="text-xs">{{ upgrade.name }}</h2>
         </div>
       </div>
     </button>
@@ -51,7 +51,7 @@
           <img :src="upgrade.image" alt="cook" />
         </div>
         <div class="h-[20%] w-auto text-center">
-          <h2 class="text-sm">{{ upgrade.name }}</h2>
+          <h2 class="text-xs">{{ upgrade.name }}</h2>
         </div>
       </div>
     </button>
