@@ -1,7 +1,7 @@
 <template>
     <div class = "bg-white text-black flex flex-col items-center p-3">
         <h1 class = "text-5xl p-5">Cookie Licker</h1>
-        <h2 class = "text-2xl p-5">Lick the cookie until it is completly gone!</h2>
+        <h2 class = "text-2xl p-5">Lick the cookie until it is completely gone!</h2>
         <div class = "flex flex-row justify-center w-full h-160">
             <actual-cookie></actual-cookie>
             <upgrade-screen></upgrade-screen>

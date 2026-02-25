@@ -9,7 +9,7 @@ export const totalCookieMade = ref(new Decimal(0))
 export const purchasedUpgrades = ref([])
 
 export const buildings= ref([
-  { name: 'Tongue', description: "A tongue to help you lick the cookie!", price: new Decimal(15), licksPerSecondBoost: new Decimal(10000000000000000000000), image: "/Tongue.png", owned: 0,},
+  { name: 'Tongue', description: "A tongue to help you lick the cookie!", price: new Decimal(15), licksPerSecondBoost: new Decimal("1e32"), image: "/Tongue.png", owned: 0,},
   { name: 'Cat', description: "Helps you lick the cookie. This one is immune to chocolate.", price: new Decimal(180), licksPerSecondBoost: new Decimal(5), image: "/Cat.png", owned: 0,},
     {name: 'Dog', description: "Slobbery Kisses for the cookie! Also immune to chocolate.", price: new Decimal(2500), licksPerSecondBoost: new Decimal(15), image: "/Dog.png", owned: 0,},
     {name: 'Licker-Bot', description: "It may not seem like it has a mouth but it is good at licking things.", price: new Decimal(17500), licksPerSecondBoost: new Decimal(55), image: "/Robot.webp", owned: 0,},
@@ -32,7 +32,7 @@ export const upgrades= ref([
 //
     {price: -1, unlocked: () => null, X: true},
     {price: -1, unlocked: () => null, X: true},
-    {name: "World Ender", price: new Decimal(1), description: "Congrajulations, you finished licking the cookie. But at what cost?", usefulDes: "Was it worth it?", image: "/UPIC/Convert.png", unlocked: () => purchasedUpgrades.value.includes("Conversion X"), boost: () => LickPowerConversion.value = LickPowerConversion.value.plus(0.1)},
+    {name: "World Ender", price: new Decimal(1), description: "Congratulations, you finished licking the cookie. But at what cost?", usefulDes: "Was it worth it?", image: "/UPIC/Convert.png", unlocked: () => purchasedUpgrades.value.includes("Conversion X"), boost: () => LickPowerConversion.value = LickPowerConversion.value.plus(0.1)},
     {price: -1, unlocked: () => null, X: true},
     {price: -1, unlocked: () => null, X: true},
 //
@@ -126,7 +126,7 @@ export function D(number){
 
 export function format(n) {
   if (n < 1000) return n
-  const suffixes = ["Thousand","Million","Billion","Trillion","Quadrillion","Quintillion","Sextillion","Septillion"]
+  const suffixes = ["Thousand","Million","Billion","Trillion","Quadrillion","Quintillion","Sextillion","Septillion","Octillion","Nonillion", "Decillion", "Undecillion", "Duodecillion", "Tredecillion", "Quattordecillion", "Quindecillion", "Sexdecillion", "Septemdecillion"]
   let e = Math.floor(Math.log10(n) / 3)
   let value = n / Math.pow(1000, e)
   return value.toFixed(2) + " " + suffixes[e-1]

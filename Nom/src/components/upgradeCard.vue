@@ -97,7 +97,7 @@ const tooltipStyle = ref({ top: "0px", left: "0px" });
 // Update tooltip position dynamically based on cursor
 function updateTooltipPosition(event) {
   tooltipX.value = event.clientX;
-  tooltipY.value = event.clientY - 60; // slightly above cursor
+  tooltipY.value = event.clientY - 120; // slightly above cursor
 
   tooltipStyle.value = {
     top: `${tooltipY.value}px`,
