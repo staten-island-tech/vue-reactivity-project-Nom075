@@ -14,7 +14,7 @@
 import { currentCrumbs, LicksPerSecond, LickPower, totalCookieMade, format, LickPowerConversion } from '@/router/cookieVariables';
 function addCookie(){
     currentCrumbs.value = currentCrumbs.value.plus(LickPower.value.plus(LickPowerConversion.value.mul(LicksPerSecond.value)))
-    totalCookieMade.value = totalCookieMade.value.plus(LickPower.value)
+    totalCookieMade.value = totalCookieMade.value.plus(LickPower.value.plus(LickPowerConversion.value.mul(LicksPerSecond.value)))
 }
 
 </script>
