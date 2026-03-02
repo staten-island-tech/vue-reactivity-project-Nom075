@@ -33,7 +33,6 @@
 
 <script setup>
 import { currentCrumbs, totalCookieMade, format, D, LicksPerSecond, rounder } from '@/router/cookieVariables';
-import Decimal from 'decimal.js';
 
 defineProps({
     building: {

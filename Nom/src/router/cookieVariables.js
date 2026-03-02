@@ -75,14 +75,14 @@ export const upgrades= ref([
     {price: -1, unlocked: () => null, X: true},
     {name: "X", price: new Decimal(1), description: "Y", usefulDes: "Z",  image: "/UPIC/WaterDrop.png", unlocked: () => purchasedUpgrades.value.includes("Pillar of Fear"),  boost: () => buildings.value[5].licksPerSecondBoost *= 1.5},
     {name: "Whale--n", price: new Decimal(1), description: "That horror when the nukes get dropped...", usefulDes: "Portals are 50% more efficient.",  image: "/UPIC/whale.png", unlocked: () => purchasedUpgrades.value.includes("Pillar of Fear"),  boost: () => buildings.value[5].licksPerSecondBoost *= 1.5},
-    {name: "Ion Lee", price: new Decimal(1), description: "Ian Lee the Li-ion.", usefulDes: "Portals are 50% more efficient",  image: "/UPIC/Ion.png", unlocked: () => purchasedUpgrades.value.includes("Pillar of Fear"),  boost: () => buildings.value[5].licksPerSecondBoost *= 1.5},
+    {name: "Ion Lee", price: new Decimal(1), description: "Ian Lee the Li-ion.", usefulDes: "Portals are 50% more efficient.",  image: "/UPIC/Ion.png", unlocked: () => purchasedUpgrades.value.includes("Pillar of Fear"),  boost: () => buildings.value[5].licksPerSecondBoost *= 1.5},
     {price: -1, unlocked: () => null, X: true},
 //
     {name: "X", price: new Decimal(1), description: "Y", usefulDes: "Z",  image: "/UPIC/WaterDrop.png", unlocked: () => purchasedUpgrades.value.includes("Pillar of Doom"),  boost: () => buildings.value[5].licksPerSecondBoost *= 1.5},
     {price: -1, unlocked: () => null, X: true},
     {name: "Pillar of Fear", price: new Decimal(1), description: "The guardian pillar of the greatest fears.", usefulDes: "Portals are 50% more efficient.",  image: "/UPIC/Pillar.png", unlocked: () => purchasedUpgrades.value.includes("Portal Gateway"),  boost: () => buildings.value[5].licksPerSecondBoost *= 1.5},
     {price: -1, unlocked: () => null, X: true},
-    {name: "X", price: new Decimal(1), description: "Y", usefulDes: "Z",  image: "/UPIC/WaterDrop.png", unlocked: () => purchasedUpgrades.value.includes("Pillar of Mystery"),  boost: () => buildings.value[5].licksPerSecondBoost *= 1.5},
+    {name: "白红", price: new Decimal(1), description: "White and Red.", usefulDes: "Portals are 50% more efficient.",  image: "/UPIC/pink.webp", unlocked: () => purchasedUpgrades.value.includes("Pillar of Mystery"),  boost: () => buildings.value[5].licksPerSecondBoost *= 1.5},
 //
     {name: "Megaback Chaojie", price: new Decimal(1), description: "The final boss of food... is BACK!", usefulDes: "Portals are 50% more efficient.",  image: "/UPIC/HumpbackWhale.webp", unlocked: () => purchasedUpgrades.value.includes("Pillar of Doom"),  boost: () => buildings.value[5].licksPerSecondBoost *= 1.5},
     {name: "Pillar of Doom", price: new Decimal(1), description: "The guardian pillar of the final bosses.", usefulDes: "Portals are 50% more efficient.",  image: "/UPIC/Pillar.png", unlocked: () => purchasedUpgrades.value.includes("Portal Gateway"),  boost: () => buildings.value[5].licksPerSecondBoost *= 1.5},
