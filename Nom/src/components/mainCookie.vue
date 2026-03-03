@@ -22,7 +22,7 @@ const game_ID = setInterval(() => {
         totalCookieMade.value = totalCookieMade.value.plus(LicksPerSecond.value.div(5))
     }
     currentCrumbs.value = rounder(currentCrumbs.value, "cc")
-}, 200)
+}, 10)
 
 
 

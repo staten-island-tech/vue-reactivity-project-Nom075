@@ -8,9 +8,8 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
 import buildingCard from '@/components/buildingCard.vue';
-import { currentCrumbs, LicksPerSecond, LickPower, rounder, D, buildings, calculateLPS} from '@/router/cookieVariables';
+import { currentCrumbs, rounder, D, buildings, calculateLPS} from '@/router/cookieVariables';
 
 
 function buyingCalculation(building){
@@ -24,6 +23,7 @@ function buyingCalculation(building){
         
     }
 }
+
 
 
 </script>

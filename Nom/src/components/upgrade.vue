@@ -7,7 +7,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import upgradeCard from "@/components/upgradeCard.vue"
 import { upgrades } from "@/router/cookieVariables";
 
