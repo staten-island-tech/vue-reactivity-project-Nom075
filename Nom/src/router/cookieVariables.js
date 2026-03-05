@@ -422,11 +422,11 @@ export const upgrades = ref([
   //
   { price: -1, unlocked: () => null, X: true },
   {
-    name: 'X',
+    name: 'Fettuccine Alfredo',
     price: new Decimal(1),
-    description: 'Y',
-    usefulDes: 'Z',
-    image: '/UPIC/WaterDrop.png',
+    description: 'This guy speaks math and only math.',
+    usefulDes: 'Portals are 50% more efficient.',
+    image: '/UPIC/Math.png',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Fear'),
     boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
   },
@@ -451,11 +451,11 @@ export const upgrades = ref([
   { price: -1, unlocked: () => null, X: true },
   //
   {
-    name: 'X',
+    name: 'Zhi-ro',
     price: new Decimal(1),
-    description: 'Y',
-    usefulDes: 'Z',
-    image: '/UPIC/WaterDrop.png',
+    description: 'This guy always steals food, pairs with the guy below very well.',
+    usefulDes: 'Portals are 50% more efficient.',
+    image: '/UPIC/Zero.png',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Doom'),
     boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
   },
@@ -547,11 +547,11 @@ export const upgrades = ref([
   },
   { price: -1, unlocked: () => null, X: true },
   {
-    name: 'X',
+    name: 'Expired Cookie',
     price: new Decimal(1),
-    description: 'Y',
-    usefulDes: 'Z',
-    image: '/UPIC/WaterDrop.png',
+    description: 'Why would you ever want to date or lick an expired cookie?',
+    usefulDes: 'Portals are 50% more efficient.',
+    image: '/UPIC/Expired.png',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Mystery'),
     boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
   },
@@ -596,7 +596,7 @@ export const upgrades = ref([
     name: 'Evolution I',
     price: new Decimal(75),
     description: 'Evolve the Pink Ball',
-    usefulDes: `${buildings.value[6].name} licks twice as fast.`,
+    usefulDes: `Pink Balls licks twice as fast.`,
     image: '/UPIC/Evolve.png',
     unlocked: () => buildings.value[6].owned >= 1,
     boost: () => {(buildings.value[6].licksPerSecondBoost *= 2);
@@ -606,42 +606,53 @@ export const upgrades = ref([
     },
   },
   {
-    name: 'Saliva II',
+    name: 'Kirby Power',
     price: new Decimal(300),
-    description: 'Who asked for more Saliva?',
-    usefulDes: `${buildings.value[6].name} licks twice as fast.`,
-    image: '/UPIC/WaterDrop.png',
-    unlocked: () => buildings.value[6].owned >= 5 && purchasedUpgrades.value.includes('Saliva I'),
-    boost: () => (buildings.value[6].licksPerSecondBoost *= 2),
+    description: 'Harness the power of Kirby!',
+    usefulDes: `Clicks gain 5% of licks per second.`,
+    image: '/UPIC/KirbyPower.png',
+    unlocked: () => buildings.value[6].owned >= 5 && purchasedUpgrades.value.includes('Evolution I'),
+    boost: () => {(LickPowerConversion.value = LickPowerConversion.value.plus(0.05));
+        buildings.value[6].image = '/UPIC/KirbyPower.png';
+        buildings.value[6].description = `Kirby is a strong licker!`;
+    },
   },
   {
-    name: 'Saliva III',
+    name: 'Fire Kirby',
     price: new Decimal(1800),
-    description: 'Dripping faucet of saliva.',
-    usefulDes: `${buildings.value[6].name} licks twice as fast.`,
-    image: '/UPIC/WaterDrop.png',
-    unlocked: () => buildings.value[6].owned >= 10 && purchasedUpgrades.value.includes('Saliva II'),
-    boost: () => (buildings.value[6].licksPerSecondBoost *= 2),
-  },
-  {
-    name: 'Saliva IV',
-    price: new Decimal(5000),
-    description: 'Saliva factory.',
-    usefulDes: `${buildings.value[6].name} licks twice as fast.`,
-    image: '/UPIC/WaterDrop.png',
-    unlocked: () =>
-      buildings.value[6].owned >= 15 && purchasedUpgrades.value.includes('Saliva III'),
-    boost: () => (buildings.value[6].licksPerSecondBoost *= 2),
+    description: 'Flame energy to melt the cookie.',
+    usefulDes: `Kirby melts cookies three times as fast.`,
+    image: '/UPIC/FireKirby.png',
+    unlocked: () => buildings.value[6].owned >= 10 && purchasedUpgrades.value.includes('Kirby Power'),
+    boost: () => {(buildings.value[6].licksPerSecondBoost *= 3);
+        buildings.value[6].image = '/KirbyFireEvo.png';
+        buildings.value[6].name = `Fire Kirby`;
+        buildings.value[6].description = `Harness the power of fire to melt cookies!`;
+    },
   },
   {
     name: 'King Kirby',
     price: new Decimal(12000),
-    description: 'Rename this building to Saliva already.',
-    usefulDes: `${buildings.value[6].name} EATS twice as fast.`,
+    description: 'The ruler of eating stuff.',
+    usefulDes: `Kirby licks four times as fast.`,
     image: '/UPIC/KingKirby.png',
-    unlocked: () => buildings.value[6].owned >= 25 && purchasedUpgrades.value.includes('Saliva IV'),
+    unlocked: () => buildings.value[6].owned >= 15 && purchasedUpgrades.value.includes('Fire Kirby'),
     boost: () => {
-      buildings.value[6].licksPerSecondBoost *= 2;
+      buildings.value[6].licksPerSecondBoost *= 4;
+      buildings.value[6].name = `King Kirby`;
+      buildings.value[6].image = '/UPIC/KingKirby.png'
+    },
+  },
+  {
+    name: 'Final Evolution',
+    price: new Decimal(12000),
+    description: 'Ultimate form of Kirby.',
+    usefulDes: `Kirby EATS five times as fast.`,
+    image: '/UPIC/Evolve.png',
+    unlocked: () => buildings.value[6].owned >= 25 && purchasedUpgrades.value.includes('King Kirby'),
+    boost: () => {
+      buildings.value[6].licksPerSecondBoost *= 5;
+      buildings.value[6].name = `Swallower Kirby`;
       buildings.value[6].image = `KirbyEvo5.gif`
     },
   },
