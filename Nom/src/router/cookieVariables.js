@@ -527,11 +527,11 @@ export const upgrades = ref([
   },
   //
   {
-    name: 'X',
+    name: 'Neldaughter',
     price: new Decimal(1),
-    description: 'Y',
-    usefulDes: 'Z',
-    image: '/UPIC/WaterDrop.png',
+    description: 'His eyes of doom when he looks at me:',
+    usefulDes: 'Portals are 50% more efficient.',
+    image: '/UPIC/Eyes.png',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Doom'),
     boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
   },
@@ -547,7 +547,7 @@ export const upgrades = ref([
   },
   { price: -1, unlocked: () => null, X: true },
   {
-    name: 'Expired Cookie',
+    name: 'Expired Coie',
     price: new Decimal(1),
     description: 'Why would you ever want to date or lick an expired cookie?',
     usefulDes: 'Portals are 50% more efficient.',
@@ -593,7 +593,7 @@ export const upgrades = ref([
   { price: -1, unlocked: () => null, X: true },
   //
   {
-    name: 'Evolution I',
+    name: 'Evoluten I',
     price: new Decimal(75),
     description: 'Evolve the Pink Ball',
     usefulDes: `Pink Balls licks twice as fast.`,
@@ -644,7 +644,7 @@ export const upgrades = ref([
     },
   },
   {
-    name: 'Final Evolution',
+    name: 'Final Evoluion',
     price: new Decimal(12000),
     description: 'Ultimate form of Kirby.',
     usefulDes: `Kirby EATS five times as fast.`,
