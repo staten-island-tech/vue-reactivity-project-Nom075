@@ -593,7 +593,7 @@ export const upgrades = ref([
   { price: -1, unlocked: () => null, X: true },
   //
   {
-    name: 'Evoluten I',
+    name: 'Evolution I',
     price: new Decimal(75),
     description: 'Evolve the Pink Ball',
     usefulDes: `Pink Balls licks twice as fast.`,
@@ -644,7 +644,7 @@ export const upgrades = ref([
     },
   },
   {
-    name: 'Final Evoluion',
+    name: 'Final Evolution',
     price: new Decimal(12000),
     description: 'Ultimate form of Kirby.',
     usefulDes: `Kirby EATS five times as fast.`,
