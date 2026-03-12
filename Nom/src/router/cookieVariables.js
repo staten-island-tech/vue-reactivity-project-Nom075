@@ -1,11 +1,11 @@
-import { ref, reactive } from 'vue'
+import { ref} from 'vue'
 import Decimal from 'decimal.js'
 
-export const currentCrumbs = ref(new Decimal('1e20'))
+export const currentCrumbs = ref(new Decimal(0))
 export const LicksPerSecond = ref(new Decimal(0))
 export const LickPower = ref(new Decimal(1))
 export const LickPowerConversion = ref(new Decimal(0))
-export const totalCookieMade = ref(new Decimal('1e20'))
+export const totalCookieMade = ref(new Decimal(0))
 export const purchasedUpgrades = ref([])
 
 export const buildings = ref([
@@ -20,48 +20,48 @@ export const buildings = ref([
   {
     name: 'Cat',
     description: 'Helps you lick the cookie. This one is immune to chocolate.',
-    price: new Decimal(180),
-    licksPerSecondBoost: new Decimal(5),
+    price: new Decimal(120),
+    licksPerSecondBoost: new Decimal(8),
     image: '/Cat.png',
     owned: 0,
   },
   {
     name: 'Dog',
     description: 'Slobbery Kisses for the cookie! Also immune to chocolate.',
-    price: new Decimal(2500),
-    licksPerSecondBoost: new Decimal(15),
+    price: new Decimal(800),
+    licksPerSecondBoost: new Decimal(35),
     image: '/Dog.png',
     owned: 0,
   },
   {
     name: 'Licker-Bot',
     description: 'It may not seem like it has a mouth but it is good at licking things.',
-    price: new Decimal(17500),
-    licksPerSecondBoost: new Decimal(55),
+    price: new Decimal(5000),
+    licksPerSecondBoost: new Decimal(180),
     image: '/Robot.webp',
     owned: 0,
   },
   {
     name: 'Lickman',
     description: `A failure who couldn't be a hitman, so now he is a lickman.`,
-    price: new Decimal(100000),
-    licksPerSecondBoost: new Decimal(350),
+    price: new Decimal(25000),
+    licksPerSecondBoost: new Decimal(800),
     image: '/Lickman.png',
     owned: 0,
   },
   {
     name: 'Portal',
     description: `Summons evil entities to lick cookies.`,
-    price: new Decimal(10000000),
-    licksPerSecondBoost: new Decimal(1000),
+    price: new Decimal(200000),
+    licksPerSecondBoost: new Decimal(5000),
     image: '/portal.png',
     owned: 0,
   },
   {
     name: 'Pink Ball',
     description: `This is just a little pink ball...`,
-    price: new Decimal('1e9'),
-    licksPerSecondBoost: new Decimal(100000),
+    price: new Decimal("2.5e7"),
+    licksPerSecondBoost: new Decimal(80000),
     image: '/KirbyEvo0.png',
     owned: 0,
   },
@@ -79,7 +79,7 @@ export const upgrades = ref([
   },
   {
     name: 'Conversion II',
-    price: new Decimal(450),
+    price: new Decimal(300),
     description: "You licked and chewed, but you couldn't get rid of it.",
     usefulDes: 'Clicks gain 1% of licks per second.',
     image: '/UPIC/Convert.png',
@@ -88,7 +88,7 @@ export const upgrades = ref([
   },
   {
     name: 'Conversion III',
-    price: new Decimal(2700),
+    price: new Decimal(700),
     description: 'You tried buying tongues to help lick, but it would not budge.',
     usefulDes: 'Clicks gain 1% of licks per second.',
     image: '/UPIC/Convert.png',
@@ -97,7 +97,7 @@ export const upgrades = ref([
   },
   {
     name: 'Conversion IV',
-    price: new Decimal(16200),
+    price: new Decimal(2500),
     description:
       'You pruchased upgrades with your legendary cookie crumbs, it still will not budge.',
     usefulDes: 'Clicks gain 2% of licks per second.',
@@ -107,7 +107,7 @@ export const upgrades = ref([
   },
   {
     name: 'Conversion V',
-    price: new Decimal(97200),
+    price: new Decimal("8e3"),
     description: 'Desperation leads you to buy more and more insane things.',
     usefulDes: 'Clicks gain 2% of licks per second.',
     image: '/UPIC/Convert.png',
@@ -117,7 +117,7 @@ export const upgrades = ref([
   //
   {
     name: 'Conversion VI',
-    price: new Decimal(291600),
+    price: new Decimal("6e4"),
     description: 'The cooking looms over you, refusing to be eaten.',
     usefulDes: 'Clicks gain 3% of licks per second.',
     image: '/UPIC/Convert.png',
@@ -126,7 +126,7 @@ export const upgrades = ref([
   },
   {
     name: 'Conversion VII',
-    price: new Decimal(10497600),
+    price: new Decimal("5e5"),
     description: 'Unsatisfied and frustrated, you seek more options.',
     usefulDes: 'Clicks gain 5% of licks per second.',
     image: '/UPIC/Convert.png',
@@ -135,7 +135,7 @@ export const upgrades = ref([
   },
   {
     name: 'Conversion VIII',
-    price: new Decimal(62985600),
+    price: new Decimal("6e6"),
     description: 'You turn to the dark side, pulling creatures of evil just to lick a cookie.',
     usefulDes: 'Clicks gain 5% of licks per second.',
     image: '/UPIC/Convert.png',
@@ -144,7 +144,7 @@ export const upgrades = ref([
   },
   {
     name: 'Conversion IX',
-    price: new Decimal(377913600),
+    price: new Decimal("5e7"),
     description: 'Cracks in the cookie appear, signaling the near end.',
     usefulDes: 'Clicks gain 7% of licks per second.',
     image: '/UPIC/Convert.png',
@@ -153,7 +153,7 @@ export const upgrades = ref([
   },
   {
     name: 'Conversion X',
-    price: new Decimal(2267481600),
+    price: new Decimal("2.5e8"),
     description:
       'Pieces start falling from the cookie at extreme speed. Are you almost going to make it?',
     usefulDes: 'Clicks gain 10% of licks per second.',
@@ -166,7 +166,7 @@ export const upgrades = ref([
   { price: -1, unlocked: () => null, X: true },
   {
     name: 'World Ender',
-    price: new Decimal(22674816000),
+    price: new Decimal("3e9"),
     description: 'Congratulations, you finished licking the cookie. But at what cost?',
     usefulDes: 'Was it worth it?',
     image: '/UPIC/Convert.png',
@@ -189,14 +189,14 @@ export const upgrades = ref([
     name: 'Saliva II',
     price: new Decimal(300),
     description: 'Who asked for more Saliva?',
-    usefulDes: 'Tongues are three times as efficient.',
+    usefulDes: 'Tongues are twice as efficient.',
     image: '/UPIC/WaterDrop.png',
     unlocked: () => buildings.value[0].owned >= 5 && purchasedUpgrades.value.includes('Saliva I'),
-    boost: () => (buildings.value[0].licksPerSecondBoost *= 3),
+    boost: () => (buildings.value[0].licksPerSecondBoost *= 2),
   },
   {
     name: 'Saliva III',
-    price: new Decimal(1800),
+    price: new Decimal(1200),
     description: 'Dripping faucet of saliva.',
     usefulDes: 'Tongues are twice as efficient.',
     image: '/UPIC/WaterDrop.png',
@@ -205,7 +205,7 @@ export const upgrades = ref([
   },
   {
     name: 'Saliva IV',
-    price: new Decimal(5000),
+    price: new Decimal(3500),
     description: 'Saliva factory.',
     usefulDes: 'Tongues are twice as efficient.',
     image: '/UPIC/WaterDrop.png',
@@ -215,7 +215,7 @@ export const upgrades = ref([
   },
   {
     name: 'Saliva V',
-    price: new Decimal(12000),
+    price: new Decimal(8000),
     description: 'Rename this building to Saliva already.',
     usefulDes: 'Tongues are twice as efficient.',
     image: '/UPIC/WaterDrop.png',
@@ -225,7 +225,7 @@ export const upgrades = ref([
   //
   {
     name: 'Kitty',
-    price: new Decimal(450),
+    price: new Decimal(200),
     description: 'A biggie that helps you lick your cookie.',
     usefulDes: 'Cats are twice as efficient.',
     image: '/UPIC/WTFCat2.png',
@@ -234,7 +234,7 @@ export const upgrades = ref([
   },
   {
     name: 'Cat',
-    price: new Decimal(1200),
+    price: new Decimal(600),
     description: 'A big biggie that helps lick your cookie.',
     usefulDes: 'Cats are twice as efficient.',
     image: '/UPIC/WTFCat.png',
@@ -243,7 +243,7 @@ export const upgrades = ref([
   },
   {
     name: 'Gray Cat',
-    price: new Decimal(7000),
+    price: new Decimal(3000),
     description: 'Biggest chocolate biggie.',
     usefulDes: 'Cats are twice as efficient.',
     image: '/UPIC/WTFCat3.png',
@@ -252,7 +252,7 @@ export const upgrades = ref([
   },
   {
     name: 'Insane Cat',
-    price: new Decimal(18000),
+    price: new Decimal(8000),
     description: 'He looks funny.',
     usefulDes: 'Cats are twice as efficient.',
     image: '/UPIC/WTFCat4.png',
@@ -261,7 +261,7 @@ export const upgrades = ref([
   },
   {
     name: 'Nyan Cat',
-    price: new Decimal(30000),
+    price: new Decimal(20000),
     description: 'NYAN CATTTTTTTTT',
     usefulDes: 'Cats are twice as efficient.',
     image: '/UPIC/WTFCat5.png',
@@ -272,7 +272,7 @@ export const upgrades = ref([
   //
   {
     name: 'Doggie',
-    price: new Decimal(5000),
+    price: new Decimal(1200),
     description: 'Nibble nibble.',
     usefulDes: 'Dogs are twice as efficient.',
     image: '/UPIC/Dog1.png',
@@ -281,7 +281,7 @@ export const upgrades = ref([
   },
   {
     name: 'Dog',
-    price: new Decimal(12500),
+    price: new Decimal(4000),
     description: "Isn't this... the one in the shop...?",
     usefulDes: 'Dogs are twice as efficient.',
     image: '/Dog.png',
@@ -290,7 +290,7 @@ export const upgrades = ref([
   },
   {
     name: 'Sneaky Dog',
-    price: new Decimal(30000),
+    price: new Decimal(12000),
     description: "He licks your cookies while you ain't looking.",
     usefulDes: 'Dogs are twice as efficient.',
     image: '/UPIC/Dog3.png',
@@ -299,7 +299,7 @@ export const upgrades = ref([
   },
   {
     name: 'King Dog V',
-    price: new Decimal(69000),
+    price: new Decimal(30000),
     description: 'Ruler of all dogs.',
     usefulDes: 'Dogs are twice as efficient.',
     image: '/UPIC/Dog4.png',
@@ -309,7 +309,7 @@ export const upgrades = ref([
   },
   {
     name: 'Doge',
-    price: new Decimal(150000),
+    price: new Decimal(80000),
     description: 'The coolest dog.',
     usefulDes: 'Dogs are twice as efficient.',
     image: '/UPIC/Dog5.png',
@@ -320,7 +320,7 @@ export const upgrades = ref([
   //
   {
     name: 'Analytics',
-    price: new Decimal(1000),
+    price: new Decimal(8000),
     description: 'Studies the best parts to lick for optimal crumb generation.',
     usefulDes: 'Licker-Bots are twice as efficient.',
     image: '/UPIC/Bot1.png',
@@ -329,7 +329,7 @@ export const upgrades = ref([
   },
   {
     name: 'Machinery',
-    price: new Decimal(4500),
+    price: new Decimal(20000),
     description: 'Increases its licking speed.',
     usefulDes: 'Licker-Bots are twice as efficient.',
     image: '/UPIC/Bot2.png',
@@ -338,7 +338,7 @@ export const upgrades = ref([
   },
   {
     name: 'Software Upgrade',
-    price: new Decimal(10000),
+    price: new Decimal(50000),
     description: 'More cookie studying!',
     usefulDes: 'Licker-Bots are twice as efficient.',
     image: '/UPIC/Bot3.png',
@@ -347,7 +347,7 @@ export const upgrades = ref([
   },
   {
     name: 'AI',
-    price: new Decimal(25000),
+    price: new Decimal(120000),
     description: 'Strategizes together with the other bots.',
     usefulDes: 'Licker-Bots are twice as efficient.',
     image: '/UPIC/Bot4.png',
@@ -357,7 +357,7 @@ export const upgrades = ref([
   },
   {
     name: 'ChatGPT',
-    price: new Decimal(75000),
+    price: new Decimal(300000),
     description: 'The birth of a new era, the death of the cookie.',
     usefulDes: 'Licker-Bots are twice as efficient.',
     image: '/UPIC/Bot5.png',
@@ -367,7 +367,7 @@ export const upgrades = ref([
   //
   {
     name: 'Contract',
-    price: new Decimal(1000),
+    price: new Decimal(40000),
     description: 'Establishes a contract to coordinate plans.',
     usefulDes: 'Lickmans are twice as efficient.',
     image: '/UPIC/Lickman1.png',
@@ -376,7 +376,7 @@ export const upgrades = ref([
   },
   {
     name: 'Mystery Man',
-    price: new Decimal(4500),
+    price: new Decimal(100000),
     description: 'Interesting guy to help you lick the cookie.',
     usefulDes: 'Lickmans are twice as efficient.',
     image: '/UPIC/Lickman2.png',
@@ -385,7 +385,7 @@ export const upgrades = ref([
   },
   {
     name: 'Contract II',
-    price: new Decimal(10000),
+    price: new Decimal(250000),
     description: 'Even better contract -- signed by cookie crumbs.',
     usefulDes: 'Lickmans are twice as efficient.',
     image: '/UPIC/Lickman3.png',
@@ -395,7 +395,7 @@ export const upgrades = ref([
   },
   {
     name: 'Paid in crumbs',
-    price: new Decimal(25000),
+    price: new Decimal(600000),
     description: 'Why pay real money when you can pay in cookie crumbs?',
     usefulDes: 'Lickmans are twice as efficient.',
     image: '/UPIC/Lickman4.webp',
@@ -405,7 +405,7 @@ export const upgrades = ref([
   },
   {
     name: 'Shadowman',
-    price: new Decimal(75000),
+    price: new Decimal("1.5e6"),
     description: "I wouldn't hire this guy if I were you...",
     usefulDes: 'Lickmans are twice as efficient.',
     image: '/UPIC/Lickman5.png',
@@ -423,46 +423,46 @@ export const upgrades = ref([
   { price: -1, unlocked: () => null, X: true },
   {
     name: 'Fettuccine Alfredo',
-    price: new Decimal(1),
+    price: new Decimal("1.2e6"),
     description: 'This guy speaks math and only math.',
-    usefulDes: 'Portals are 50% more efficient.',
+    usefulDes: 'Portals are 20% more efficient.',
     image: '/UPIC/Math.png',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Fear'),
-    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
+    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.2),
   },
   {
     name: 'Whale--n',
-    price: new Decimal(1),
+    price: new Decimal("1.2e6"),
     description: 'That horror when the nukes get dropped...',
-    usefulDes: 'Portals are 50% more efficient.',
+    usefulDes: 'Portals are 20% more efficient.',
     image: '/UPIC/whale.png',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Fear'),
-    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
+    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.2),
   },
   {
     name: 'Ion Lee',
-    price: new Decimal(1),
+    price: new Decimal("1.2e6"),
     description: 'Ian Lee the Li-ion.',
-    usefulDes: 'Portals are 50% more efficient.',
+    usefulDes: 'Portals are 20% more efficient.',
     image: '/UPIC/Ion.png',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Fear'),
-    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
+    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.2),
   },
   { price: -1, unlocked: () => null, X: true },
   //
   {
     name: 'Zhi-ro',
-    price: new Decimal(1),
+    price: new Decimal("1.2e6"),
     description: 'This guy always steals food, pairs with the guy below very well.',
-    usefulDes: 'Portals are 50% more efficient.',
+    usefulDes: 'Portals are 20% more efficient.',
     image: '/UPIC/Zero.png',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Doom'),
-    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
+    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.2),
   },
   { price: -1, unlocked: () => null, X: true },
   {
     name: 'Pillar of Fear',
-    price: new Decimal(1),
+    price: new Decimal(400000),
     description: 'The guardian pillar of the greatest fears.',
     usefulDes: 'Portals are 50% more efficient.',
     image: '/UPIC/Pillar.png',
@@ -472,26 +472,26 @@ export const upgrades = ref([
   { price: -1, unlocked: () => null, X: true },
   {
     name: '白红',
-    price: new Decimal(1),
+    price: new Decimal("1.2e6"),
     description: 'White and Red.',
-    usefulDes: 'Portals are 50% more efficient.',
+    usefulDes: 'Portals are 20% more efficient.',
     image: '/UPIC/pink.webp',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Mystery'),
-    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
+    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.2),
   },
   //
   {
     name: 'Megaback Chaojie',
-    price: new Decimal(1),
+    price: new Decimal("1.2e6"),
     description: 'The final boss of food... is BACK!',
-    usefulDes: 'Portals are 50% more efficient.',
+    usefulDes: 'Portals are 20% more efficient.',
     image: '/UPIC/HumpbackWhale.webp',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Doom'),
-    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
+    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.2),
   },
   {
     name: 'Pillar of Doom',
-    price: new Decimal(1),
+    price: new Decimal(400000),
     description: 'The guardian pillar of the final bosses.',
     usefulDes: 'Portals are 50% more efficient.',
     image: '/UPIC/Pillar.png',
@@ -500,16 +500,16 @@ export const upgrades = ref([
   },
   {
     name: 'Portal Gateway',
-    price: new Decimal(1),
+    price: new Decimal(100000),
     description: 'Invites the entities to Earth. Probably not a good idea.',
-    usefulDes: 'Portals are 50% more efficient',
+    usefulDes: 'Portals are twice as efficient.',
     image: '/UPIC/Gateway.png',
     unlocked: () => buildings.value[5].owned >= 1,
-    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
+    boost: () => (buildings.value[5].licksPerSecondBoost *= 2),
   },
   {
     name: 'Pillar of Mystery',
-    price: new Decimal(1),
+    price: new Decimal(400000),
     description: 'The guardian pillar of all mystery.',
     usefulDes: 'Portals are 50% more efficient.',
     image: '/UPIC/Pillar.png',
@@ -518,27 +518,27 @@ export const upgrades = ref([
   },
   {
     name: 'Meowchael Catiychenko',
-    price: new Decimal(1),
+    price: new Decimal("1.2e6"),
     description: 'www.instagram.com/mikeblackbelt/',
-    usefulDes: 'Cats are 2000% more efficient.',
+    usefulDes: 'Cats are 10 times more efficient.',
     image: '/UPIC/Michael.jpg',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Mystery'),
-    boost: () => (buildings.value[1].licksPerSecondBoost *= 200),
+    boost: () => (buildings.value[1].licksPerSecondBoost *= 10),
   },
   //
   {
     name: 'Neldaughter',
-    price: new Decimal(1),
+    price: new Decimal("1.2e6"),
     description: 'His eyes of doom when he looks at me:',
-    usefulDes: 'Portals are 50% more efficient.',
+    usefulDes: 'Portals are 20% more efficient.',
     image: '/UPIC/Eyes.png',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Doom'),
-    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
+    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.2),
   },
   { price: -1, unlocked: () => null, X: true },
   {
     name: 'Pillar of Ascension',
-    price: new Decimal(1),
+    price: new Decimal(400000),
     description: 'The guardian pillar of those who wish to ascend.',
     usefulDes: 'Portals are 50% more efficient.',
     image: '/UPIC/Pillar.png',
@@ -548,41 +548,41 @@ export const upgrades = ref([
   { price: -1, unlocked: () => null, X: true },
   {
     name: 'Expired Coie',
-    price: new Decimal(1),
+    price: new Decimal("1.2e6"),
     description: 'Why would you ever want to date or lick an expired cookie?',
-    usefulDes: 'Portals are 50% more efficient.',
+    usefulDes: 'Portals are 20% more efficient.',
     image: '/UPIC/Expired.png',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Mystery'),
-    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
+    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.2),
   },
   //
   { price: -1, unlocked: () => null, X: true },
   {
     name: 'Cerberus',
-    price: new Decimal(1),
+    price: new Decimal("1.2e6"),
     description: 'The dog that stands between you and the afterlife!',
-    usefulDes: 'Dogs are twice as efficient.',
+    usefulDes: 'Dogs are 20% more efficient.',
     image: '/UPIC/Cerberus.png',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Ascension'),
-    boost: () => (buildings.value[2].licksPerSecondBoost *= 1.5),
+    boost: () => (buildings.value[2].licksPerSecondBoost *= 1.2),
   },
   {
     name: 'Unfunthony',
-    price: new Decimal(1),
+    price: new Decimal("1.2e6"),
     description: 'Defeat the god of unfun, and you move on!',
-    usefulDes: 'Portals are 50% more efficient.',
+    usefulDes: 'Portals are 20% more efficient.',
     image: '/UPIC/white.jpg',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Ascension'),
-    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
+    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.2),
   },
   {
     name: 'Charles Darwen',
-    price: new Decimal(1),
+    price: new Decimal("1.2e6"),
     description: 'The dude of evolution - ripoff edition.',
-    usefulDes: 'Portals are 50% more efficient.',
+    usefulDes: 'Portals are 20% more efficient.',
     image: '/UPIC/Darwen.png',
     unlocked: () => purchasedUpgrades.value.includes('Pillar of Ascension'),
-    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.5),
+    boost: () => (buildings.value[5].licksPerSecondBoost *= 1.2),
   },
   { price: -1, unlocked: () => null, X: true },
   //
@@ -594,9 +594,9 @@ export const upgrades = ref([
   //
   {
     name: 'Evolution I',
-    price: new Decimal(75),
+    price: new Decimal("1.5e7"),
     description: 'Evolve the Pink Ball',
-    usefulDes: `Pink Balls licks twice as fast.`,
+    usefulDes: `Pink Balls lick twice as fast.`,
     image: '/UPIC/Evolve.png',
     unlocked: () => buildings.value[6].owned >= 1,
     boost: () => {(buildings.value[6].licksPerSecondBoost *= 2);
@@ -607,11 +607,11 @@ export const upgrades = ref([
   },
   {
     name: 'Kirby Power',
-    price: new Decimal(300),
+    price: new Decimal("3e7"),
     description: 'Harness the power of Kirby!',
     usefulDes: `Clicks gain 5% of licks per second.`,
     image: '/UPIC/KirbyPower.png',
-    unlocked: () => buildings.value[6].owned >= 5 && purchasedUpgrades.value.includes('Evolution I'),
+    unlocked: () => purchasedUpgrades.value.includes('Evolution I'),
     boost: () => {(LickPowerConversion.value = LickPowerConversion.value.plus(0.05));
         buildings.value[6].image = '/UPIC/KirbyPower.png';
         buildings.value[6].description = `Kirby is a strong licker!`;
@@ -619,11 +619,11 @@ export const upgrades = ref([
   },
   {
     name: 'Fire Kirby',
-    price: new Decimal(1800),
+    price: new Decimal("0.6e8"),
     description: 'Flame energy to melt the cookie.',
-    usefulDes: `Kirby melts cookies three times as fast.`,
+    usefulDes: `Kirby melts cookies 3 times as fast.`,
     image: '/UPIC/FireKirby.png',
-    unlocked: () => buildings.value[6].owned >= 10 && purchasedUpgrades.value.includes('Kirby Power'),
+    unlocked: () => purchasedUpgrades.value.includes('Kirby Power'),
     boost: () => {(buildings.value[6].licksPerSecondBoost *= 3);
         buildings.value[6].image = '/KirbyFireEvo.png';
         buildings.value[6].name = `Fire Kirby`;
@@ -632,11 +632,11 @@ export const upgrades = ref([
   },
   {
     name: 'King Kirby',
-    price: new Decimal(12000),
+    price: new Decimal("1.5e8"),
     description: 'The ruler of eating stuff.',
-    usefulDes: `Kirby licks four times as fast.`,
+    usefulDes: `Kirby licks 4 times as fast.`,
     image: '/UPIC/KingKirby.png',
-    unlocked: () => buildings.value[6].owned >= 15 && purchasedUpgrades.value.includes('Fire Kirby'),
+    unlocked: () => purchasedUpgrades.value.includes('Fire Kirby'),
     boost: () => {
       buildings.value[6].licksPerSecondBoost *= 4;
       buildings.value[6].name = `King Kirby`;
@@ -645,11 +645,11 @@ export const upgrades = ref([
   },
   {
     name: 'Final Evolution',
-    price: new Decimal(12000),
+    price: new Decimal("6e8"),
     description: 'Ultimate form of Kirby.',
-    usefulDes: `Kirby EATS five times as fast.`,
+    usefulDes: `Kirby EATS 5 times as fast.`,
     image: '/UPIC/Evolve.png',
-    unlocked: () => buildings.value[6].owned >= 25 && purchasedUpgrades.value.includes('King Kirby'),
+    unlocked: () => purchasedUpgrades.value.includes('King Kirby'),
     boost: () => {
       buildings.value[6].licksPerSecondBoost *= 5;
       buildings.value[6].name = `Swallower Kirby`;
