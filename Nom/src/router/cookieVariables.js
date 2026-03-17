@@ -1,11 +1,11 @@
 import { ref} from 'vue'
 import Decimal from 'decimal.js'
 
-export const currentCrumbs = ref(new Decimal("9e9"))
+export const currentCrumbs = ref(new Decimal(0))
 export const LicksPerSecond = ref(new Decimal(0))
 export const LickPower = ref(new Decimal(1))
 export const LickPowerConversion = ref(new Decimal(0))
-export const totalCookieMade = ref(new Decimal("9e9"))
+export const totalCookieMade = ref(new Decimal(0))
 export const purchasedUpgrades = ref([])
 
 export const buildings = ref([
